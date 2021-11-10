@@ -1,0 +1,31 @@
+
+body{
+    background: rgb(236, 233, 233);
+    color: rgb(29, 2, 2);
+}
+h2{
+    color: red;
+    text-align: center;
+
+}
+button{
+    padding: 10px;
+
+}
+a{
+    text-decoration: none;
+    color: rgb(185, 27, 27);
+    border: 1px solid;
+    border-radius: 3px;
+}
+a:hover{
+    color: rgba(0, 241, 149, 0.856);
+    background: rgb(0, 0, 0);
+    transition: 1.5s;
+}
+
+.about-link{
+    
+    padding: 5px;
+
+}
