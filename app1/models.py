@@ -8,7 +8,7 @@ class Asgard(models.Model):
     instruments = models.CharField(max_length=100)
 
     def __str__ (self):
-        return self.first_name + "" + self.last_name
+        return self.first_name + " " + self.last_name
 
 
 class Album(models.Model):
@@ -16,9 +16,11 @@ class Album(models.Model):
     artist = models.ForeignKey(Asgard, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     release_date = models.DateField()
+    
+    
     rating=(
-        (1, "very good"),
-        (2, "Good"),
+        (1, "Good"),
+        (2, "Very good"),
         (3, "Not Good"),
         (4, "Excellent"),
         (5, "Ultra Excellent")
@@ -26,5 +28,5 @@ class Album(models.Model):
     num_stars =models.IntegerField(choices=rating)
 
     def __str__(self) :
-        return self.name + ", Rating:" + str(self.num_stars)
+        return self.name + ", Rating: " + str(self.num_stars)
 
