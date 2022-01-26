@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from app1.models import Asgard, Album 
+from app1 import forms 
 
 
 def home(request):
@@ -13,6 +14,7 @@ def about(request):
     return render(request,'app1/about.html')
 
 def form (request):
-    diction  = {}
-    return render (request, 'app1/form.html', context=diction)
+    new_form = forms.user_form()
+    diction  = {'test_form':new_form, 'heading_1':"This form is created using Django libary"}
+    return render (request, 'app1/form.html', context=diction) 
     
