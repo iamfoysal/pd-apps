@@ -11,3 +11,8 @@ def home(request):
 
 def about(request):
     return render(request,'app1/about.html')
+
+def form (request):
+    diction  = {}
+    return render (request, 'app1/form.html', context=diction)
+    
