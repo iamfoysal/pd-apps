@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from app1.models import Asgard, Album 
 
 
 def home(request):
-    diction = {'text_1':'I am a text send from views.py'}
+    asgard_list = Asgard.objects.order_by('first_name')
+    diction = {'text_1':'This is a list Asgard means (Musician)', 'asgard':asgard_list}
     return render(request,'app1/home.html', context=diction)
     
 
