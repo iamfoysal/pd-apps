@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Django Form</title>
 </head>
 <body>
     <!-- <h3>This Form is created by html</h3>
@@ -18,15 +18,21 @@
     </form> -->
     <hr>
     <h3>{{heading_1}}</h3>
-    <form action="" method="post"> 
-        {{test_form.as_p}}  <!---jodi input Field guloke upore niche sajate hoy tokhon (.as_p ) eti use korte hobe--->
-        <input type="submit" name="submit" value="submit">
-        
-
-    </form>
-
-    
-</body>
+        <form action="" method="POST">{% csrf_token %} 
+            {{test_form.as_p}}  <!---jodi input Field guloke upore niche sajate hoy tokhon (.as_p ) eti use korte hobe---> 
+             
+            <input type="submit" name="submit" value="submit">
+        </form>
+        <hr>
+        {% if form_submited %}
+            <p>Name : {{user_name}}</p>
+            <p>Date Of Birth : {{user_dob}}</p>
+            <!-- <p>User Phone : {{user_phone}}</p> -->
+            <!-- <p>User Email : {{user_email}}</p> -->
+        {% endif%}
+    </body>
 </html>
+
+<!-- Phone Number Or Email Field not working  !!!-->
 
 
