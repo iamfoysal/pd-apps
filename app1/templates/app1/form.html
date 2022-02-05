@@ -19,7 +19,7 @@
     <hr>
     <h3>{{heading_1}}</h3>
         <form action="" method="POST">{% csrf_token %} 
-            {{test_form.as_p}}  <!---jodi input Field guloke upore niche sajate hoy tokhon (.as_p ) eti use korte hobe---> 
+            {{test_form.as_p}}   
              
             <input type="submit" name="submit" value="submit">
         </form>
@@ -27,12 +27,16 @@
         {% if form_submited %}
             <p>Name : {{user_name}}</p>
             <p>Date Of Birth : {{user_dob}}</p>
-            <!-- <p>User Phone : {{user_phone}}</p> -->
-            <!-- <p>User Email : {{user_email}}</p> -->
+            <p>User Phone : {{user_phone}}</p>
+            <p>User Email : {{user_email}}</p>
+            <p> Address : {{ address_field }}</p>
+            <p>Boolean : {{ boolean_field }}</p>
+            <!-- <p> Password : {{ set_password }}</p> -->
         {% endif%}
     </body>
 </html>
 
-<!-- Phone Number Or Email Field not working  !!!-->
+
+
 
 
