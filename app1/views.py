@@ -14,19 +14,16 @@ def about(request):
     return render(request,'app1/about.html')
 
 def form (request):
-    new_form = forms.user_form()
-    diction  = {'test_form':new_form, 'heading_1':"This is user Form created in Django library"}
-    if request.method == 'POST':
-        new_form =forms.user_form(request.POST)
-        diction.update({'test_form':new_form})
+    new_form =  forms.AsgardForm()
+    if request.method == 'POST': 
+        new_form = forms.AsgardForm(request.POST) 
 
         if new_form.is_valid():
-            
-            # diction.update({'name': new_form.cleaned_data['name']})
-            # diction.update({'number_field': new_form.cleaned_data['number_field']})
-            diction.update({'field': 'Field Match!!'})
-            diction.update({'form_submited':"Yes"})
-           
-            
+            new_form.save(commit=True)
+            return home(request)
+    
+    diction={'test_form': new_form, 'heading_1':'Add new Musician'}
+
+
     return render (request, 'app1/form.html', context=diction) 
     
