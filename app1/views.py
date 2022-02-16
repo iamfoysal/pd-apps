@@ -18,6 +18,7 @@ def form (request):
     diction  = {'test_form':new_form, 'heading_1':"This is user Form created in Django library"}
     if request.method == 'POST':
         new_form =forms.user_form(request.POST)
+
         if new_form.is_valid():
             user_name = new_form.cleaned_data['user_name']
             user_dob =new_form.cleaned_data['user_dob']
@@ -26,7 +27,7 @@ def form (request):
             boolean_field = new_form.cleaned_data['boolean_field']
             address_field= new_form.cleaned_data['address_field']
             # set_password = new_form.cleaned_data['set_password']
-            
+            # semester = new_form.cleaned_data['semester']
             
             # diction.update({'set_password': set_password})
             diction.update({'address_field':address_field})
@@ -35,7 +36,10 @@ def form (request):
             diction.update({'user_dob':user_dob})
             diction.update({'user_phone':user_phone})
             diction.update({'user_email':user_email})
+            diction.update({'semester':new_form.cleaned_data['semester']}) 
+            diction.update({'radio_select':new_form.cleaned_data['radio_select']})
             diction.update({'form_submited':"Yes"})
+           
             
     return render (request, 'app1/form.html', context=diction) 
     
