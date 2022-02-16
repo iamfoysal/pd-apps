@@ -18,26 +18,13 @@ def form (request):
     diction  = {'test_form':new_form, 'heading_1':"This is user Form created in Django library"}
     if request.method == 'POST':
         new_form =forms.user_form(request.POST)
+        diction.update({'test_form':new_form})
 
         if new_form.is_valid():
-            user_name = new_form.cleaned_data['user_name']
-            user_dob =new_form.cleaned_data['user_dob']
-            user_phone = new_form.cleaned_data['user_phone']
-            user_email = new_form.cleaned_data['user_email']  
-            boolean_field = new_form.cleaned_data['boolean_field']
-            address_field= new_form.cleaned_data['address_field']
-            # set_password = new_form.cleaned_data['set_password']
-            # semester = new_form.cleaned_data['semester']
             
-            # diction.update({'set_password': set_password})
-            diction.update({'address_field':address_field})
-            diction.update({'boolean_field':boolean_field})
-            diction.update({'user_name':user_name})       
-            diction.update({'user_dob':user_dob})
-            diction.update({'user_phone':user_phone})
-            diction.update({'user_email':user_email})
-            diction.update({'semester':new_form.cleaned_data['semester']}) 
-            diction.update({'radio_select':new_form.cleaned_data['radio_select']})
+            # diction.update({'name': new_form.cleaned_data['name']})
+            # diction.update({'number_field': new_form.cleaned_data['number_field']})
+            diction.update({'field': 'Field Match!!'})
             diction.update({'form_submited':"Yes"})
            
             
