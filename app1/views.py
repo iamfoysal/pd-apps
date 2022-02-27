@@ -6,7 +6,7 @@ from app1 import forms
 
 def home(request):
     asgard_list = Asgard.objects.order_by('first_name')
-    diction = {'text_1':'This is a list Asgard means (Musician)', 'asgard':asgard_list}
+    diction = {'text_1':'This is a list asgard means (musician)', 'asgard':asgard_list}
     return render(request,'app1/home.html', context=diction)
     
 
@@ -15,6 +15,7 @@ def about(request):
 
 def form (request):
     new_form =  forms.AsgardForm()
+  
     if request.method == 'POST': 
         new_form = forms.AsgardForm(request.POST) 
 
