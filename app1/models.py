@@ -7,7 +7,10 @@ class Asgard(models.Model):
     last_name = models.CharField(max_length=50)
     instruments = models.CharField(max_length=100)
 
-    def __str__ (self):
+    # class Meta: 
+    #     db_table = "asgard" # this meta class change database table name 
+
+    def __str__(self):
         return self.first_name + " " + self.last_name
 
 
@@ -16,7 +19,7 @@ class Album(models.Model):
     artist = models.ForeignKey(Asgard, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     release_date = models.DateField()
-    
+
     
     rating=(
         (1, "Good"),
@@ -25,7 +28,9 @@ class Album(models.Model):
         (4, "Excellent"),
         (5, "Ultra Excellent")
     )
-    num_stars =models.IntegerField(choices=rating)
+    num_stars = models.IntegerField(choices=rating)
+    # class Meta:
+    #     db_table = "album"
 
     def __str__(self) :
         return self.name + ", Rating: " + str(self.num_stars)

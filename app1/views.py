@@ -6,15 +6,20 @@ from app1 import forms
 
 def home(request):
     asgard_list = Asgard.objects.order_by('first_name')
-    diction = {'text_1':'This is a list asgard means (musician)', 'asgard':asgard_list}
-    return render(request,'app1/home.html', context=diction)
+    diction = {'text_1': 'This is a (Musician List)', 'asgard': asgard_list}
+    return render(request, 'app1/home.html', context=diction)
     
 
 def about(request):
-    return render(request,'app1/about.html')
+    return render(request, 'app1/about.html')
 
-def form (request):
-    new_form =  forms.AsgardForm()
+
+def demo(request):
+    return render(request, 'app1/demo.html')
+
+
+def form(request):
+    new_form = forms.AsgardForm()
   
     if request.method == 'POST': 
         new_form = forms.AsgardForm(request.POST) 
@@ -23,8 +28,6 @@ def form (request):
             new_form.save(commit=True)
             return home(request)
     
-    diction={'test_form': new_form, 'heading_1':'Add new Musician'}
+    diction = {'test_form': new_form, 'heading_1': 'Add new Musician'}
 
-
-    return render (request, 'app1/form.html', context=diction) 
-    
+    return render(request, 'app1/form.html', context=diction)

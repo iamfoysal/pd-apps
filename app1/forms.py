@@ -17,8 +17,6 @@ class user_form(forms.Form):
    user_vmail = forms.EmailField()
 
 
-
-
    def clean (self):
       all_cleaned_data = super().clean()
       user_email = all_cleaned_data ['user_email']
@@ -29,11 +27,11 @@ class user_form(forms.Form):
 
 """
 
+
 class AsgardForm(forms.ModelForm):
+
    class Meta:
       model = models.Asgard
-
       fields = "__all__"
       # exclude = ['first_name']
       # fields = ('first_name', 'last_name',)
-      
